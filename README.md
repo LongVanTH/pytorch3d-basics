@@ -1,8 +1,8 @@
 # Rendering Basics with PyTorch3D
 
-This repository provides my solutions to the [assignment 1](https://github.com/learning3d/assignment1) from the course 16-825: Learning for 3D Vision offered in Spring 2024 at Carnegie Mellon University.
+This repository contains my solutions for [Assignment 1](https://github.com/learning3d/assignment1) from the course 16-825: Learning for 3D Vision offered in Spring 2024 at Carnegie Mellon University.
 
-For detailed instructions and context, please consult the README of the original assignment, which is also reproduced below.
+For detailed instructions and context, please consult the README of the original assignment, which is also reproduced further below.
 
 ## Installations
 
