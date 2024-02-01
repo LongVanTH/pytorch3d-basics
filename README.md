@@ -2,7 +2,70 @@
 
 This repository contains my solutions for [Assignment 1](https://github.com/learning3d/assignment1) from the course **16-825: Learning for 3D Vision** offered in Spring 2024 at Carnegie Mellon University.
 
-For detailed instructions and context, please consult the README of the original assignment, which is also reproduced further [below](https://github.com/LongVanTH/pytorch3d-basics/blob/main/README.md#16-825-assignment-1-rendering-basics-with-pytorch3d-total-100-points--10-bonus).
+For detailed instructions and context, please consult the README of the original assignment, which is also reproduced further <a href="#16-825-assignment-1-rendering-basics-with-pytorch3d-total-100-points--10-bonus">below</a>
+
+**Table of Contents**
+<div id="user-content-toc">
+  <ul>
+    <li><a href="#rendering-basics-with-pytorch3d">Rendering Basics with PyTorch3D</a>
+      <ul>
+        <li><a href="#installations">Installations</a>
+          <ul>
+            <li><a href="#macos-without-conda">MacOS (without conda)</a></li>
+            <li><a href="#windows-with-cuda-116-support">Windows (with CUDA 11.6 support)</a></li>
+          </ul>
+        </li>
+        <li><a href="#results-and-commands">Results and commands</a>
+          <ul>
+            <li><a href="#11-360-degree-renders">1.1. 360-degree Renders</a></li>
+            <li><a href="#12-re-creating-the-dolly-zoom">1.2 Re-creating the Dolly Zoom</a></li>
+            <li><a href="#21-constructing-a-tetrahedron">2.1 Constructing a Tetrahedron</a></li>
+            <li><a href="#22-constructing-a-cube">2.2 Constructing a Cube</a></li>
+            <li><a href="#3-re-texturing-a-mesh">3. Re-texturing a mesh</a></li>
+            <li><a href="#4-camera-transformations">4. Camera Transformations</a></li>
+            <li><a href="#51-rendering-point-clouds-from-rgb-d-images">5.1 Rendering Point Clouds from RGB-D Images</a></li>
+            <li><a href="#52-parametric-functions">5.2 Parametric Functions</a></li>
+            <li><a href="#53-implicit-surfaces">5.3 Implicit Surfaces</a></li>
+            <li><a href="#6-do-something-fun">6. Do Something Fun</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#16-825-assignment-1-rendering-basics-with-pytorch3d-total-100-points--10-bonus">16-825 Assignment 1: Rendering Basics with PyTorch3D (Total: 100 Points + 10 Bonus)</a>
+      <ul>
+        <li><a href="#0-setup">0. Setup</a>
+          <ul>
+            <li><a href="#01-rendering-your-first-mesh">0.1 Rendering your first mesh</a></li>
+          </ul>
+        </li>
+        <li><a href="#1-practicing-with-cameras">1. Practicing with Cameras</a>
+          <ul>
+            <li><a href="#11-360-degree-renders-5-points">1.1. 360-degree Renders (5 points)</a></li>
+            <li><a href="#12-re-creating-the-dolly-zoom-10-points">1.2 Re-creating the Dolly Zoom (10 points)</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-practicing-with-meshes">2. Practicing with Meshes</a>
+          <ul>
+            <li><a href="#21-constructing-a-tetrahedron-5-points">2.1 Constructing a Tetrahedron (5 points)</a></li>
+            <li><a href="#22-constructing-a-cube-5-points">2.2 Constructing a Cube (5 points)</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-re-texturing-a-mesh-10-points">3. Re-texturing a mesh (10 points)</a></li>
+        <li><a href="#4-camera-transformations-10-points">4. Camera Transformations (10 points)</a></li>
+        <li><a href="#5-rendering-generic-3d-representations">5. Rendering Generic 3D Representations</a>
+          <ul>
+            <li><a href="#51-rendering-point-clouds-from-rgb-d-images-10-points">5.1 Rendering Point Clouds from RGB-D Images (10 points)</a></li>
+            <li><a href="#52-parametric-functions-10--5-points">5.2 Parametric Functions (10 + 5 points)</a></li>
+            <li><a href="#53-implicit-surfaces-15--5-points">5.3 Implicit Surfaces (15 + 5 points)</a></li>
+          </ul>
+        </li>
+        <li><a href="#6-do-something-fun-10-points">6. Do Something Fun (10 points)</a></li>
+        <li><a href="#extra-credit-7-sampling-points-on-meshes-10-points"> (Extra Credit) 7. Sampling Points on Meshes (10 points)</a></li>
+        <li><a href="#8-attendance">8. Attendance</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
 ## Installations
 
@@ -29,15 +92,185 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 
 ## Results and commands
 
+**Table of Contents**
 
+### 1.1. 360-degree Renders
 
+`python -m code.q_1_1 --output_path output/cow_360_camera.gif --image_size 512 --num_frames 60 --fps 30 --rotation_mode ease-in-out --rotation_camera true`
 
+`python -m code.q_1_1 --output_path output/cow_360_object.gif --image_size 512 --num_frames 60 --fps 30 --rotation_mode ease-in-out --rotation_camera false`
 
+<figure>
+  <img
+  src=output/cow_360_camera.gif>
+  <img
+  src=output/cow_360_object.gif>
+  <figcaption>1st figure: camera rotates - 2nd figure: object rotates</figcaption>
+</figure>
 
+### 1.2 Re-creating the Dolly Zoom
 
+`python -m code.q_1_2 --num_frames 100 --fps 30 --output_file output/dolly_front.gif --image_size 512 --look_from_behind false`
 
+`python -m code.q_1_2 --num_frames 100 --fps 30 --output_file output/dolly_behind.gif --image_size 512 --look_from_behind true`
 
+<figure>
+  <img
+  src=output/dolly_front.gif>
+  <img
+  src=output/dolly_behind.gif>
+</figure>
 
+### 2.1 Constructing a Tetrahedron
+
+`python -m code.q_2 --mesh tetrahedron --image_size 256 --output_file output/tetrahedron_360.gif`
+
+<figure>
+  <img
+  src=output/tetrahedron_360.gif>
+</figure>
+
+There are 4 vertices and 4 (triangle) faces.
+
+### 2.2 Constructing a Cube
+
+`python -m code.q_2 --mesh cube --image_size 256 --output_file output/cube_360.gif`
+
+<figure>
+  <img
+  src=output/cube_360.gif>
+</figure>
+
+There are 8 vertices and 12 (triangle) faces.
+
+### 3. Re-texturing a mesh
+
+`color1=[1, 1, 0]` <br>
+`color2=[1, 0, 1]`
+
+`python -m code.q_3  --image_size 512 --output_file output/cow_retextured.gif`
+
+<figure>
+  <img
+  src=output/cow_retextured.gif>
+</figure>
+
+### 4. Camera Transformations
+
+`python -m code.q_4 --image_size 512`
+
+<figure>
+  <img
+  src=output/transform1.jpg>
+  <figcaption>Rotation of 90 degrees around z-axis, no translation</figcaption>
+</figure>
+
+```
+R_relative=[[0, -1, 0],
+            [1, 0, 0],
+            [0, 0, 1]]
+T_relative=[0, 0, 0]
+```
+<br>
+<figure>
+  <img
+  src=output/transform3.jpg>
+  <figcaption>No rotation, translation on z-axis</figcaption>
+</figure>
+
+```
+R_relative=[[1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]]
+T_relative=[0, 0, 2]
+```
+<br>
+<figure>
+  <img
+  src=output/transform4.jpg>
+  <figcaption>No rotation, translation on x and y axis</figcaption>
+</figure>
+
+```
+R_relative=[[1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]]
+T_relative=[0.5, -0.5, 0]
+```
+<br>
+<figure>
+  <img
+  src=output/transform2.jpg>
+  <figcaption>Rotation of 90 degrees around y axis (green), translation on x and z axis</figcaption>
+</figure>
+
+```
+R_relative=[[0, 0, -1],
+            [0, 1, 0],
+            [1, 0, 0]]
+T_relative=[3, 0, 3]
+```
+
+### 5.1 Rendering Point Clouds from RGB-D Images
+
+`python -m code.q_5_1 --use_pointcloud {i} --image_size 256 --num_points 0 --num_views 60 --fps 30 --output_file output/pointcloud_plant_{i}.gif` (replace `{i}` by 1,2 or 3)
+
+![plant](output/pointcloud_plant_1.gif)
+![plant](output/pointcloud_plant_2.gif)
+![plant](output/pointcloud_plant_3.gif)
+
+### 5.2 Parametric Functions
+
+**Torus**
+
+A torus can be parameterized as: <br>
+$\begin{aligned}x(\theta,\varphi )&=(R+r\cos \theta )\cos {\varphi }\\y(\theta ,\varphi )&=(R+r\cos \theta )\sin {\varphi }\\z(\theta ,\varphi )&=r\sin \theta \\\end{aligned}$ <br>
+where $\theta,\varphi \in [0,2\pi)$.
+
+Below, `R = 1` and `r = 1/2`.
+
+`python -m code.q_5_2 --surface torus --image_size 512 --num_samples 400 --num_views 100 --fps 20 --output_file output/torus.gif`
+
+![torus](output/torus.gif)
+
+**Klein bottle**
+
+The parameterization of the Klein bottle can be found [here](https://en.wikipedia.org/wiki/Klein_bottle#Bottle_shape) 
+
+`python -m code.q_5_2 --surface klein --image_size 256 --num_samples 400 --num_views 100 --fps 20 --output_file output/klein_bottle.gif`
+
+![klein](output/klein_bottle.gif)
+![klein](output/klein_bottle_2.gif)
+
+### 5.3 Implicit Surfaces
+
+**Torus**
+
+An implicit equation of a torus is given by: <br>
+$(R - \sqrt{x^2 + y^2})^2 + z^2 - r^2 = 0$.
+
+Below, `R = 1` and `r = 1/2`.
+
+`python -m code.q_5_3 --surface torus --image_size 512 --voxel_size 128 --num_views 100 --fps 20 --output_file output/torus_mesh.gif`
+
+![torus](output/torus_mesh.gif)
+
+**Tanglecube**
+
+See [here](https://www-sop.inria.fr/galaad/surface/) for a list of fun surfaces defined by implicit equations.
+
+`python -m code.q_5_3 --surface tanglecube --image_size 512 --voxel_size 128 --num_views 100 --fps 20 --output_file output/tanglecube_mesh.gif`
+
+![tanglecube](output/tanglecube_mesh.gif)
+
+**Parametric surface point clouds VS Implicit surface meshes**
+
+Rendering Speed: Faster to sample point clouds from a parametric equation. <br>
+Rendering Quality: Meshes offer a more detailed representation of the object's surface. <br>
+Ease of Use: Point clouds because of the simplicity in defining interiority, exteriority, and performing boolean operations using implicit equations. <br>
+Memory Usage: Point clouds are generally more memory-efficient.
+
+### 6. Do Something Fun
 
 
 # 16-825 Assignment 1: Rendering Basics with PyTorch3D (Total: 100 Points + 10 Bonus)
@@ -399,7 +632,7 @@ ease of use, memory usage, etc. (5 points)
 
 ## 6. Do Something Fun (10 points)
 
-Now that you have learned to work with various 3D represenations and render them, it
+Now that you have learned to work with various 3D representations and render them, it
 is time to try something fun. Create your own 3D structures, or render something in an interesting way,
 or creatively texture, or anything else that appeals to you - the (3D) world is your oyster!
 If you wish to download additional meshes,  [Free3D](https://free3d.com/) is a good place to start.
@@ -429,5 +662,5 @@ and outputs a point cloud. Then, using the cow mesh, randomly sample 10, 100, 10
 include the gif in your writeup.
 
 
-# 8. Attendance
+## 8. Attendance
 Please mark your attendance in the [canvas quiz](https://canvas.cmu.edu/courses/38857/quizzes/119664).
