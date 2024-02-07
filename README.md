@@ -96,9 +96,9 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 
 ### 1.1. 360-degree Renders
 
-`python -m code.q_1_1 --output_path output/cow_360_camera.gif --image_size 512 --num_frames 60 --fps 30 --rotation_mode ease-in-out --rotation_camera true`
+`python -m code.q_1_1 --output_path output/cow_360_camera.gif --image_size 256 --num_frames 60 --fps 30 --rotation_mode ease-in-out --rotation_camera true`
 
-`python -m code.q_1_1 --output_path output/cow_360_object.gif --image_size 512 --num_frames 60 --fps 30 --rotation_mode ease-in-out --rotation_camera false`
+`python -m code.q_1_1 --output_path output/cow_360_object.gif --image_size 256 --num_frames 60 --fps 30 --rotation_mode ease-in-out --rotation_camera false`
 
 <figure>
   <img
@@ -110,9 +110,9 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 
 ### 1.2 Re-creating the Dolly Zoom
 
-`python -m code.q_1_2 --num_frames 100 --fps 30 --output_file output/dolly_front.gif --image_size 512 --look_from_behind false`
+`python -m code.q_1_2 --num_frames 100 --fps 30 --output_file output/dolly_front.gif --image_size 256 --look_from_behind false`
 
-`python -m code.q_1_2 --num_frames 100 --fps 30 --output_file output/dolly_behind.gif --image_size 512 --look_from_behind true`
+`python -m code.q_1_2 --num_frames 100 --fps 30 --output_file output/dolly_behind.gif --image_size 256 --look_from_behind true`
 
 <figure>
   <img
@@ -224,7 +224,9 @@ T_relative=[3, 0, 3]
 **Torus**
 
 A torus can be parameterized as: <br>
-$\begin{aligned}x(\theta,\varphi )&=(R+r\cos \theta )\cos {\varphi }\\y(\theta ,\varphi )&=(R+r\cos \theta )\sin {\varphi }\\z(\theta ,\varphi )&=r\sin \theta \\\end{aligned}$ <br>
+$x(\theta,\varphi )=(R+r\cos \theta )\cos {\varphi }$ <br>
+$y(\theta ,\varphi )=(R+r\cos \theta )\sin {\varphi }$ <br>
+$z(\theta ,\varphi )=r\sin \theta$ <br>
 where $\theta,\varphi \in [0,2\pi)$.
 
 Below, `R = 1` and `r = 1/2`.
@@ -235,7 +237,7 @@ Below, `R = 1` and `r = 1/2`.
 
 **Klein bottle**
 
-The parameterization of the Klein bottle can be found [here](https://en.wikipedia.org/wiki/Klein_bottle#Bottle_shape) 
+The parameterization of the Klein bottle can be found [here](https://en.wikipedia.org/wiki/Klein_bottle#Bottle_shape). 
 
 `python -m code.q_5_2 --surface klein --image_size 256 --num_samples 400 --num_views 100 --fps 20 --output_file output/klein_bottle.gif`
 
@@ -272,6 +274,11 @@ Memory Usage: Point clouds are generally more memory-efficient.
 
 ### 6. Do Something Fun
 
+.obj files are found [here (Pikachu)](https://free3d.com/3d-model/pikachu-medium-poly-909714.html) and [here (Pokeball)](https://free3d.com/3d-model/pokemon-ball-23563.html).
+
+`python -m code.q_6 --image_size 512`
+
+![scene](output/scene.gif)
 
 # 16-825 Assignment 1: Rendering Basics with PyTorch3D (Total: 100 Points + 10 Bonus)
 
