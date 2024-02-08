@@ -101,13 +101,9 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 
 `python -m code.q_1_1 --output_path output/cow_360_object.gif --image_size 256 --num_frames 60 --fps 30 --rotation_mode ease-in-out --rotation_camera false`
 
-<figure>
-  <img
-  src=output/cow_360_camera.gif>
-  <img
-  src=output/cow_360_object.gif>
-  <figcaption>1st figure: camera rotates - 2nd figure: object rotates</figcaption>
-</figure>
+| ![Camera Rotation](output/cow_360_camera.gif)  | ![Object Rotation](output/cow_360_object.gif)  |
+| :---------------------------: | :---------------------------: |
+| Camera rotates                | (Bonus) Object rotates        |
 
 ### 1.2 Re-creating the Dolly Zoom
 
@@ -115,12 +111,9 @@ pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 
 `python -m code.q_1_2 --num_frames 100 --fps 30 --output_file output/dolly_behind.gif --image_size 256 --look_from_behind true`
 
-<figure>
-  <img
-  src=output/dolly_front.gif>
-  <img
-  src=output/dolly_behind.gif>
-</figure>
+| ![Dolly front](output/dolly_front.gif)  | ![Dolly behind](output/dolly_behind.gif)  |
+| :---------------------------: | :---------------------------: |
+| Dolly zoom (front)            | Dolly zoom (behind)           |
 
 ### 2.1 Constructing a Tetrahedron
 
@@ -146,8 +139,8 @@ There are 8 vertices and 12 (triangle) faces.
 
 ### 3. Re-texturing a mesh
 
-`color1=[1, 1, 0]` <br>
-`color2=[1, 0, 1]`
+`color1 = [1, 1, 0]` <br>
+`color2 = [1, 0, 1]`
 
 `python -m code.q_3  --image_size 512 --output_file output/cow_retextured.gif`
 
@@ -160,65 +153,19 @@ There are 8 vertices and 12 (triangle) faces.
 
 `python -m code.q_4 --image_size 512`
 
-<figure>
-  <img
-  src=output/transform1.jpg>
-  <figcaption>Rotation of 90 degrees around z-axis, no translation</figcaption>
-</figure>
-
-```
-R_relative=[[0, -1, 0],
-            [1, 0, 0],
-            [0, 0, 1]]
-T_relative=[0, 0, 0]
-```
-<br>
-<figure>
-  <img
-  src=output/transform3.jpg>
-  <figcaption>No rotation, translation on z-axis</figcaption>
-</figure>
-
-```
-R_relative=[[1, 0, 0],
-            [0, 1, 0],
-            [0, 0, 1]]
-T_relative=[0, 0, 2]
-```
-<br>
-<figure>
-  <img
-  src=output/transform4.jpg>
-  <figcaption>No rotation, translation on x and y axis</figcaption>
-</figure>
-
-```
-R_relative=[[1, 0, 0],
-            [0, 1, 0],
-            [0, 0, 1]]
-T_relative=[0.5, -0.5, 0]
-```
-<br>
-<figure>
-  <img
-  src=output/transform2.jpg>
-  <figcaption>Rotation of 90 degrees around y axis (green), translation on x and z axis</figcaption>
-</figure>
-
-```
-R_relative=[[0, 0, -1],
-            [0, 1, 0],
-            [1, 0, 0]]
-T_relative=[3, 0, 3]
-```
+| **Image**                  | ![Transform 1](output/transform1.jpg)  | ![Transform 3](output/transform3.jpg)  | ![Transform 4](output/transform4.jpg)   | ![Transform 2](output/transform2.jpg)                   |
+| :------------------------: | :-------------------------------------: | :-------------------------------------: | :---------------------------------------: | :---------------------------------------------------: |
+| **Description**            | Rotation of 90 degrees around z-axis, no translation | No rotation, translation on z-axis | No rotation, translation on x and y axis | Rotation of 90 degrees around y axis (green), translation on x and z axis |
+| **R_relative**             | `[[0, -1, 0],`<br>`[1, 0, 0],`<br>`[0, 0, 1]]` | `[[1, 0, 0], `<br>`[0, 1, 0], `<br>`[0, 0, 1]]` | `[[1, 0, 0], `<br>`[0, 1, 0], `<br>`[0, 0, 1]]` | `[[0, 0, -1], `<br>`[0, 1, 0], `<br>`[1, 0, 0]]`     |
+| **T_relative**             | `[0, 0, 0]`                        | `[0, 0, 2]`                         | `[0.5, -0.5, 0]`                      | `[3, 0, 3]`  |      
 
 ### 5.1 Rendering Point Clouds from RGB-D Images
 
 `python -m code.q_5_1 --use_pointcloud {i} --image_size 256 --num_points 0 --num_views 60 --fps 30 --output_file output/pointcloud_plant_{i}.gif` (replace `{i}` by 1,2 or 3)
 
-![plant](output/pointcloud_plant_1.gif)
-![plant](output/pointcloud_plant_2.gif)
-![plant](output/pointcloud_plant_3.gif)
+| ![Point Cloud 1](output/pointcloud_plant_1.gif) | ![Point Cloud 2](output/pointcloud_plant_2.gif) | ![Union](output/pointcloud_plant_3.gif)                |
+| :-----------------------: | :-------------------------: | :------------------------------------: |
+| Point cloud (view 1)      | Point cloud (view 2)        | Union of the two point clouds          |
 
 ### 5.2 Parametric Functions
 
@@ -285,11 +232,10 @@ Memory Usage: Point clouds are generally more memory-efficient.
 
 `python -m code.q_7 --mesh_path data/cow.obj --output_file output/cow_360_points_{i}.gif --image_size 256 --frames 60 --fps 30 --num_points {i}` (replace `{i}` by 10, 100, 1000, and 10000)
 
-![samplepc](output/cow_360_points_10.gif)
-![samplepc](output/cow_360_points_100.gif)
-![samplepc](output/cow_360_points_1000.gif)
-![samplepc](output/cow_360_points_10000.gif)
-![samplepc](output/cow_360_camera.gif)
+| 10 Points Sample   | 100 Points Sample  | 1000 Points Sample | 10000 Points Sample | Mesh Render |
+| :----------------: | :----------------: | :----------------: | :-----------------: | :---------: |
+| ![Sample 10](output/cow_360_points_10.gif) | ![Sample 100](output/cow_360_points_100.gif) | ![Sample 1000](output/cow_360_points_1000.gif) | ![Sample 10000](output/cow_360_points_10000.gif) | ![Cow mesh 360](output/cow_360_camera.gif) |
+
 
 
 # 16-825 Assignment 1: Rendering Basics with PyTorch3D (Total: 100 Points + 10 Bonus)
