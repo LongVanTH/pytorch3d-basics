@@ -27,6 +27,7 @@ For detailed instructions and context, please consult the README of the original
             <li><a href="#52-parametric-functions">5.2 Parametric Functions</a></li>
             <li><a href="#53-implicit-surfaces">5.3 Implicit Surfaces</a></li>
             <li><a href="#6-do-something-fun">6. Do Something Fun</a></li>
+            <li><a href="#7-sampling-points-on-meshes">7. Sampling Points on Meshes</a></li>
           </ul>
         </li>
       </ul>
@@ -279,6 +280,17 @@ Memory Usage: Point clouds are generally more memory-efficient.
 `python -m code.q_6 --image_size 512`
 
 ![scene](output/scene.gif)
+
+### 7. Sampling Points on Meshes
+
+`python -m code.q_7 --mesh_path data/cow.obj --output_file output/cow_360_points_{i}.gif --image_size 256 --frames 60 --fps 30 --num_points {i}` (replace `{i}` by 10, 100, 1000, and 10000)
+
+![samplepc](output/cow_360_points_10.gif)
+![samplepc](output/cow_360_points_100.gif)
+![samplepc](output/cow_360_points_1000.gif)
+![samplepc](output/cow_360_points_10000.gif)
+![samplepc](output/cow_360_camera.gif)
+
 
 # 16-825 Assignment 1: Rendering Basics with PyTorch3D (Total: 100 Points + 10 Bonus)
 
