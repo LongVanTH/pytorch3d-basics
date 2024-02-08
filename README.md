@@ -13,6 +13,7 @@ For detailed instructions and context, please consult the README of the original
           <ul>
             <li><a href="#macos-without-conda">MacOS (without conda)</a></li>
             <li><a href="#windows-with-cuda-116-support">Windows (with CUDA 11.6 support)</a></li>
+            <li><a href="#windows-cuda-118-and-pytorch-20">Windows (CUDA 11.8 and PyTorch 2.0)</a></li>
           </ul>
         </li>
         <li><a href="#results-and-commands">Results and commands</a>
@@ -89,6 +90,18 @@ conda activate pytorch3d
 conda install pytorch=1.13.0 torchvision pytorch-cuda=11.6 -c pytorch -c nvidia
 conda install -c fvcore -c iopath -c conda-forge fvcore iopath
 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
+pip install -r requirements.txt
+```
+
+### Windows (CUDA 11.8 and PyTorch 2.0)
+
+``` bash
+conda create -n pytorch3d python=3.10
+conda activate pytorch3d
+conda install pytorch==2.0.1 torchvision==0.15.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install -c fvcore -c iopath -c conda-forge fvcore iopath
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"
+pip install -r requirements.txt
 ```
 
 ## Results and commands
